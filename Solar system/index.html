@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Solar System</title>
+    <link rel="icon" type="jpg" href="astro.jpg">
+    <style>
+      body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: black;
+          overflow: hidden;
+      }
+      .container {
+          font-size: 15px;
+          width: 40em;
+          height: 40em;
+          position: fixed;
+      }
+      .sun {
+          position: absolute;
+          top: 15em;
+          left: 15em;
+          width: 8em;
+          height: 8em;
+          background-color: yellow;
+          border-radius: 50%;
+          box-shadow: 0 0 3em white;
+      }
+      .mercury,.earth,.moon,.venus,.mars,.phobos,.deimos{
+          position: absolute;
+          border-style: solid;
+          border-color: rgb(163, 162, 162) transparent transparent transparent;
+          border-width: 0.1em 0.1em 0 0;
+          border-radius: 50%;
+      }
+      .mercury {
+          top: 10em;
+          left: 10em;
+          width: 18em;
+          height: 18em; 
+          animation: orbit 18s linear infinite;   
+      }
+      .venus {
+          top: 7em;
+          left: 7em;
+          width: 23em;
+          height: 23em;
+          animation: orbit 24s linear infinite;
+      }
+      .earth {
+          top: 3em;
+          left: 3.4em;
+          width: 32em;
+          height: 32em; 
+          animation: orbit 36s linear infinite;   
+      }
+      .moon {
+          top: 2em;
+          right: 1.8em;
+          width: 5em;
+          height: 5em; 
+          animation: orbit 7s linear infinite;
+      }
+      .mars {
+          top: -2.8em;
+          left: -3em;
+          width: 45em;
+          height: 45em; 
+          animation: orbit 65s linear infinite;   
+      }
+      .phobos {
+          top: 3.5em;
+          right: 3.3em;
+          width: 6.5em;
+          height: 6.5em; 
+          animation: orbit 5s linear infinite;
+      }
+      
+      .deimos {
+          top: 4.3em;
+          right: 4.5em;
+          width: 4.5em;
+          height: 4.5em; 
+          animation: orbit 8s linear infinite;
+      }
+      .earth::before,
+      .moon::before,
+      .venus::before,
+      .mercury::before,
+      .mars::before,
+      .deimos::before,
+      .phobos::before {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+      }
+      
+      .mercury::before {
+          top: 2.3em;
+          right: 2em;
+          width: 1.1em;
+          height: 1.1em;
+          background-color: rgba(238, 118, 62, 0.932);
+      }
+      .venus::before {
+          top: 2.5em;
+          right: 2.5em;
+          width: 1.8em;
+          height: 1.8em;
+          background-color: rgba(235, 82, 11, 0.932);
+      }
+      .earth::before {
+          top: 3.3em;
+          right: 3.3em;
+          width: 2.3em;
+          height: 2.3em;
+          background-color: rgb(26, 112, 182);    
+      }
+      .moon::before {
+          top: 1em;
+          right: 0em;
+          width: 0.9em;
+          height: 0.9em;
+          background-color: silver;
+      }
+      .mars::before {
+          top: 5.5em;
+          right: 5.5em;
+          width: 2em;
+          height: 2em;
+          background-color: rgb(192, 34, 34);  
+      }
+      
+      .phobos::before {
+          top: 1.1em;
+          right: 0.1em;
+          width: 0.5em;
+          height: 0.5em;
+          background-color: silver;
+      }
+      
+      .deimos::before {
+          top: 1.1em;
+          right: 0em;
+          width: 0.7em;
+          height: 0.7em;
+          background-color: silver;
+      }
+      
+      @keyframes orbit {
+          to {
+              transform: rotate(360deg);
+          }
+      }
+      
+      .star {
+          position: absolute;
+          background-color: white;
+          border-radius: 50%;
+      }
+      .planet-name {
+          display: none;
+          position: absolute;
+          color: white;
+          font-size: 1.2em;
+      }
+      .sun:hover::after,
+      .earth:hover::after,
+      .moon:hover::after,
+      .venus:hover::after {
+          content: attr(data-name);
+          position: absolute;
+          color: white;
+          font-size: 1.2em;
+          top: -1.5em; /* change bottom to top and adjust the value */
+          left: 50%;
+          transform: translateX(-50%);
+      }   </style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="sun">
+      <div class="planet-name" data-name="Sun">Sun</div>
+    </div>
+    <div class="mercury">
+      <div class="planet-name" data-name="mercury">mercury</div>
+    </div>
+    <div class="earth">
+      <div class="planet-name" data-name="Earth">Earth</div>
+      <div class="moon">
+        <div class="planet-name" data-name="Moon">Moon</div>
+      </div>
+    </div>
+    <div class="venus">
+      <div class="planet-name" data-name="venus">venus</div>
+    </div>
+    <div class="mars">
+      <div class="planet-name" data-name="mars">Earth</div>
+      <div class="phobos">
+        <div class="planet-name" data-name="phobos">phobos</div>
+      </div> <div class="deimos">
+        <div class="planet-name" data-name="deimos">deimos</div>
+      </div>
+    </div>
+  </div>
+ 
+  <script>
+    function createStars() {
+      const container = document.querySelector('.container');
+      // Increase the number of stars to 1000
+      for (let i = 0; i < 800; i++) { 
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = '1px';
+        star.style.height = '1px';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        container.appendChild(star);
+      }
+    }
+    createStars();
+  </script>
+</body>
+
+</html>

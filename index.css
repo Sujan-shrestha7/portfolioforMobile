@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arvo', serif;
+}
+
+body {
+    background-color: rgb(10, 5, 20);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+}
+
+.nameLogo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 20px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 105%;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.6s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/* home css */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(10, 5, 15);
+    border-radius: 15px;
+    box-shadow: 5px 5px 50px rgb(56, 55, 55);
+}
+
+.nameIntro {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f2fcec;
+}
+
+.intro h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.auto-type {
+    color: #fff724;
+}
+
+.box img {
+    border-radius: 90px;
+    height: 320px;
+    width: auto;
+    margin: 20px 0;
+}
+
+/* Resume */
+#resume {
+    padding: 50px 20px;
+    background-color: rgb(20, 4, 54);
+    color: #f2fcec;
+}
+
+.resumeClass {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.resumeIntro {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.resumeCoding, .resumeGuitar, .resumeAstro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+    font-size: 1.2rem;
+}
+
+.resumeCoding img, .resumeGuitar img, .resumeAstro img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    max-width: 250px;
+    margin: 20px 0;
+}
+
+/* Portfolio */
+#portfolio {
+    padding: 50px 20px;
+}
+
+.portfolioIntro {
+    color: #f2fcec;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.projectGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.projectSolar {
+    flex: 1 1 calc(33% - 40px);
+    max-width: calc(33% - 40px);
+    height: auto;
+    border-radius: 15px;
+}
+
+.projectSolar img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navigation a {
+        font-size: 1em;
+        margin: 0 10px;
+    }
+
+    .box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .nameIntro {
+        font-size: 2rem;
+    }
+
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .resumeCoding, .resumeGuitar, .resumeAstro {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .resumeCoding img, .resumeGuitar img, .resumeAstro img {
+        max-width: 200px;
+    }
+
+    .projectSolar {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px;
+    }
+
+    .nameLogo {
+        font-size: 1.5em;
+    }
+
+    .navigation a {
+        font-size: 0.9em;
+        margin: 0 5px;
+    }
+
+    .box img {
+        height: 200px;
+    }
+
+    .nameIntro {
+        font-size: 1.5rem;
+    }
+
+    .intro h1 {
+        font-size: 1.2rem;
+    }
+
+    .resumeCoding img, .resumeGuitar img, .resumeAstro img {
+        max-width: 150px;
+    }
+
+    .portfolioIntro {
+        font-size: 2rem;
+    }
+}
